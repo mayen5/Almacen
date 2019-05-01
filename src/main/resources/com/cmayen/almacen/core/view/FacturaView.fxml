@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cmayen.almacen.core.controller.FacturaController">
    <children>
@@ -24,15 +25,20 @@
             <TableColumn prefWidth="150.0" text="Total" />
         </columns>
       </TableView>
-      <Button layoutX="335.0" layoutY="57.0" mnemonicParsing="false" text="Nuevo" />
-      <Label layoutX="336.0" layoutY="28.0" text="Producto" />
-      <Button layoutX="406.0" layoutY="57.0" mnemonicParsing="false" text="Editar" />
-      <Button layoutX="471.0" layoutY="57.0" mnemonicParsing="false" text="Eliminar" />
+      <Button layoutX="336.0" layoutY="105.0" mnemonicParsing="false" text="Nuevo" />
+      <Label layoutX="337.0" layoutY="76.0" text="Producto" />
+      <Button layoutX="407.0" layoutY="105.0" mnemonicParsing="false" text="Editar" />
+      <Button layoutX="472.0" layoutY="105.0" mnemonicParsing="false" text="Eliminar" />
       <Label layoutX="362.0" layoutY="364.0" text="Total" />
       <TextField layoutX="413.0" layoutY="360.0" />
       <Button layoutX="141.0" layoutY="402.0" mnemonicParsing="false" text="Nueva" />
       <Label layoutX="64.0" layoutY="406.0" text="Factura" />
       <Button layoutX="212.0" layoutY="402.0" mnemonicParsing="false" text="Editar" />
       <Button layoutX="277.0" layoutY="402.0" mnemonicParsing="false" text="Eliminar" />
+      <Label layoutX="454.0" layoutY="15.0" prefHeight="43.0" prefWidth="126.0" text="Factura">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

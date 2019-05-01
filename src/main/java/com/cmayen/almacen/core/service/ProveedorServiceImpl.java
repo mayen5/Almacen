@@ -5,7 +5,7 @@ import com.cmayen.almacen.core.dao.ProveedorDaoImpl;
 import com.cmayen.almacen.core.model.Proveedor;
 import java.util.List;
 
-public class ProvedorServiceImpl implements ProveedorService{
+public class ProveedorServiceImpl implements ProveedorService{
 
     private ProveedorDao proveedorDao = new ProveedorDaoImpl();
     

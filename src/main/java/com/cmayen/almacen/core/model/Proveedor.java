@@ -9,33 +9,28 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
 @Entity
 @Table(name="proveedor")
 @NamedQueries(
-        {
-            @NamedQuery(name="Proveedor.findAll",query="select p from Proveedor p"),
-            @NamedQuery(name="Proveedor.findAllOrderByNit",query="select p from Proveedor p order by p.nit"),
-            @NamedQuery(name="Proveedor.findByCodigoProveedor",query="select p from Proveedor p where p.codigoProveedor = ?1")
-        })
-public class Proveedor implements Serializable{
+    {
+        @NamedQuery(name="Proveedor.findAll", query="select p from Proveedor p"),
+        @NamedQuery(name="Proveedor.findAllOrderByNit", query = "select p from Proveedor p order by p.nit"),
+        @NamedQuery(name="Proveedor.findByCodigoProveedor", query = "select p from Proveedor p where p.codigoProveedor = ?1")
+    }
+)
+public class Proveedor implements Serializable {    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="codigo_proveedor")
     private Long codigoProveedor;
-    
     @Column(name="nit")
     private String nit;
-    
     @Column(name="razon_social")
     private String razonSocial;
-    
     @Column(name="direccion")
     private String direccion;
-    
     @Column(name="pagina_web")
     private String paginaWeb;
-    
     @Column(name="contacto_principal")
     private String contactoPrincipal;
 
@@ -98,5 +93,6 @@ public class Proveedor implements Serializable{
     public void setContactoPrincipal(String contactoPrincipal) {
         this.contactoPrincipal = contactoPrincipal;
     }
+    
     
 }

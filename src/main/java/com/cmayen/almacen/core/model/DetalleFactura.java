@@ -11,8 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="detalle_factura")
+// @Entity
+// @Table(name="detalle_factura")
 public class DetalleFactura implements Serializable {
     
     @Id

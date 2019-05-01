@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cmayen.almacen.core.controller.ClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cmayen.almacen.core.controller.ClienteController">
    <children>
       <TableView fx:id="tblCliente" layoutX="37.0" layoutY="192.0" prefHeight="200.0" prefWidth="527.0">
         <columns>
@@ -30,5 +30,11 @@
       <Button layoutX="115.0" layoutY="150.0" mnemonicParsing="false" text="Nuevo" />
       <Button layoutX="183.0" layoutY="150.0" mnemonicParsing="false" text="Editar" />
       <Button layoutX="247.0" layoutY="150.0" mnemonicParsing="false" text="Eliminar" />
+      <Button layoutX="42.0" layoutY="402.0" mnemonicParsing="false" onAction="#regresarVentanaPrincipal" text="Regresar" />
+      <Label layoutX="389.0" layoutY="41.0" prefHeight="43.0" prefWidth="126.0" text="Cliente">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

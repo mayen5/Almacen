@@ -11,27 +11,27 @@ public class CompraServiceImpl implements CompraService {
 
     @Override
     public List<Compra> findAllCompra() {
-        return compraDao.findAllCompra();
+        return this.compraDao.findAllCompra();
     }
 
     @Override
-    public Compra findById(Long idCompra) {
-        return compraDao.findById(idCompra);
+    public Compra findById(Long codigoCompra) {
+        return this.compraDao.findById(codigoCompra);
     }
 
     @Override
     public void saveCompra(Compra elemento) {
-        compraDao.saveCompra(elemento);
+        this.compraDao.saveCompra(elemento);
     }
 
     @Override
     public void deleteCompra(Compra elemento) {
-        compraDao.deleteCompra(elemento);
+        this.compraDao.deleteCompra(elemento);
     }
 
     @Override
     public void updateCompra(Compra elemento) {
-        compraDao.updateCompra(elemento);
+        this.compraDao.updateCompra(elemento);
     }
 
 }

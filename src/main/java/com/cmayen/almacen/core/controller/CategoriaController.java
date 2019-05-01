@@ -1,9 +1,9 @@
 package com.cmayen.almacen.core.controller;
 
 import com.cmayen.almacen.core.MainApp;
-import com.cmayen.almacen.core.model.Proveedor;
-import com.cmayen.almacen.core.service.ProveedorService;
-import com.cmayen.almacen.core.service.ProveedorServiceImpl;
+import com.cmayen.almacen.core.model.Categoria;
+import com.cmayen.almacen.core.service.CategoriaService;
+import com.cmayen.almacen.core.service.CategoriaServiceImpl;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,19 +13,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 
-public class ProveedorController implements Initializable {
-    
-    private ProveedorService proveedorService = new ProveedorServiceImpl();
-    private ObservableList<Proveedor> lista;
+public class CategoriaController implements Initializable{
+
+    private CategoriaService categoriaService = new CategoriaServiceImpl();
+    private ObservableList<Categoria> lista;
     
     private MainApp principal;
     
-    @FXML private TableView tblProveedor;
+    @FXML private TableView tblCategoria;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       lista = FXCollections.observableArrayList(proveedorService.findAllProveedor());        
-       this.tblProveedor.setItems(lista);
+       lista = FXCollections.observableArrayList(categoriaService.findAllCategoria());        
+       this.tblCategoria.setItems(lista);
     }
     
     public void setPrincipal(MainApp principal){
@@ -35,5 +35,5 @@ public class ProveedorController implements Initializable {
     public void regresarVentanaPrincipal()throws IOException {
         this.principal.mostrarVentanaPrincipal();
     }
-
+    
 }
