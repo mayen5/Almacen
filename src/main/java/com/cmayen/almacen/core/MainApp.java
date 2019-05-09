@@ -65,7 +65,7 @@ public class MainApp extends Application {
     }
     
     public void mostrarVentanaProveedores() throws IOException {
-        ProveedorController proveedorController = (ProveedorController) cambiarEscena("ProveedorView.fxml", 760, 435);
+        ProveedorController proveedorController = (ProveedorController) cambiarEscena("ProveedorView.fxml", 760, 600);
         proveedorController.setPrincipal(this);
     }
     

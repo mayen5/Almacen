@@ -1,6 +1,10 @@
 package com.cmayen.almacen.core.model;
 
 import java.io.Serializable;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,35 +25,46 @@ import javax.persistence.Table;
 )
 public class TipoDeEmpaque implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_empaque")
-    private Long codigoEmpaque;
-    @Column(name = "descripcion")
-    private String descripcion;
+    
+    private final LongProperty codigoEmpaque;
+    private final StringProperty descripcion;
 
     public TipoDeEmpaque() {
+        this.codigoEmpaque = new SimpleLongProperty();
+        this.descripcion = new SimpleStringProperty();
     }
 
     public TipoDeEmpaque(Long codigoEmpaque, String descripcion) {
-        this.codigoEmpaque = codigoEmpaque;
-        this.descripcion = descripcion;
+        this.codigoEmpaque = new SimpleLongProperty(codigoEmpaque);
+        this.descripcion = new SimpleStringProperty(descripcion);
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigo_empaque")
     public Long getCodigoEmpaque() {
-        return codigoEmpaque;
+        return codigoEmpaque.get();
     }
 
     public void setCodigoEmpaque(Long codigoEmpaque) {
-        this.codigoEmpaque = codigoEmpaque;
+        this.codigoEmpaque.set(codigoEmpaque);
     }
 
+    public LongProperty codigoEmpaque(){
+        return this.codigoEmpaque;
+    }
+    
+    @Column(name = "descripcion")
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.get();
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.descripcion.set(descripcion);
+    }
+    
+    public StringProperty descripcion(){
+        return this.descripcion;
     }
     
     

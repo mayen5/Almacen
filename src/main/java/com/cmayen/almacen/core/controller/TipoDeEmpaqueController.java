@@ -11,29 +11,39 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class TipoDeEmpaqueController implements Initializable{
+public class TipoDeEmpaqueController implements Initializable {
 
-   private TipoDeEmpaqueService tipoDeEmpaqueService = new TipoDeEmpaqueServiceImpl();
-    private ObservableList<TipoDeEmpaque> lista;
-    
     private MainApp principal;
-    
-    @FXML private TableView tblTipoDeEmpaque;
-    
+    private TipoDeEmpaqueService tipoDeEmpaqueService = new TipoDeEmpaqueServiceImpl();
+    private ObservableList<TipoDeEmpaque> lista;
+
+    @FXML
+    private TableView tblTipoDeEmpaque;
+
+    @FXML
+    private TableColumn<TipoDeEmpaque, Number> colCodigoTipoDeEmpaque;
+
+    @FXML
+    private TableColumn<TipoDeEmpaque, String> colDescripcion;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       lista = FXCollections.observableArrayList(tipoDeEmpaqueService.findAllTipoDeEmpaque());        
-       this.tblTipoDeEmpaque.setItems(lista);
+        lista = FXCollections.observableArrayList(tipoDeEmpaqueService.findAllTipoDeEmpaque());
+        this.tblTipoDeEmpaque.setItems(lista);
+        
+        this.colCodigoTipoDeEmpaque.setCellValueFactory(cellData -> cellData.getValue().codigoEmpaque());
+        this.colDescripcion.setCellValueFactory(cellData -> cellData.getValue().descripcion());
     }
-    
-    public void setPrincipal(MainApp principal){
-        this.principal=principal;
+
+    public void setPrincipal(MainApp principal) {
+        this.principal = principal;
     }
-    
-    public void regresarVentanaPrincipal()throws IOException {
+
+    public void regresarVentanaPrincipal() throws IOException {
         this.principal.mostrarVentanaPrincipal();
     }
-    
+
 }

@@ -55,6 +55,10 @@ public class FXMLController implements Initializable {
     public void setPrincipal(MainApp principal) {
         this.principal = principal;
     }
+    
+    public void cerrarVentana(){
+        System.exit(0);
+    }
 
     public void mostrarVentanaProveedores() throws IOException {
         this.principal.mostrarVentanaProveedores();
@@ -79,5 +83,6 @@ public class FXMLController implements Initializable {
     public void mostrarVentanaCategorias() throws IOException {
         this.principal.mostrarVentanaCategorias();
     }
+    
 
 }

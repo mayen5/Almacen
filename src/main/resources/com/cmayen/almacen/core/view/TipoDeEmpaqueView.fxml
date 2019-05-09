@@ -19,8 +19,8 @@
       <Button layoutX="53.0" layoutY="340.0" mnemonicParsing="false" onAction="#regresarVentanaPrincipal" text="Regresar" />
       <TableView fx:id="tblTipoDeEmpaque" layoutX="53.0" layoutY="112.0" prefHeight="200.0" prefWidth="468.0">
         <columns>
-          <TableColumn prefWidth="117.0" text="Codigo" />
-          <TableColumn prefWidth="350.0" text="Tipo deEmpaque" />
+          <TableColumn fx:id="colCodigoTipoDeEmpaque" prefWidth="117.0" text="Codigo" />
+          <TableColumn fx:id="colDescripcion" prefWidth="350.0" text="Descripcion" />
         </columns>
       </TableView>
       <Label layoutX="194.0" layoutY="14.0" prefHeight="43.0" prefWidth="213.0" text="Tipo de Empaque">

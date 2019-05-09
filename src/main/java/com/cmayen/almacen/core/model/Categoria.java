@@ -1,6 +1,10 @@
 package com.cmayen.almacen.core.model;
 
 import java.io.Serializable;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,36 +25,45 @@ import javax.persistence.Table;
 )
 public class Categoria implements Serializable {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_categoria")
-    private Long codigoCategoria;
-    @Column(name = "descripcion")
-    private String descripcion;
+    
+    private final LongProperty codigoCategoria;
+    private final StringProperty descripcion;
 
     public Categoria() {
+        this.codigoCategoria = new SimpleLongProperty();
+        this.descripcion = new SimpleStringProperty();
     }
 
     public Categoria(Long codigoCategoria, String descripcion) {
-        this.codigoCategoria = codigoCategoria;
-        this.descripcion = descripcion;
+        this.codigoCategoria = new SimpleLongProperty(codigoCategoria);
+        this.descripcion = new SimpleStringProperty(descripcion);
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigo_categoria")
     public Long getCodigoCategoria() {
-        return codigoCategoria;
+        return codigoCategoria.get();
     }
 
     public void setCodigoCategoria(Long codigoCategoria) {
-        this.codigoCategoria = codigoCategoria;
+        this.codigoCategoria.set(codigoCategoria);
+    }
+    
+    public LongProperty codigoCategoria(){
+        return this.codigoCategoria;
     }
 
+    @Column(name = "descripcion")
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.get();
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.descripcion.set(descripcion);
     }
     
-    
+    public StringProperty descripcion(){
+        return this.descripcion;
+    }
 }
