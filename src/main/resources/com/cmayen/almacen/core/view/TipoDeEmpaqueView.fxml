@@ -11,13 +11,13 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cmayen.almacen.core.controller.TipoDeEmpaqueController">
    <children>
       <Label layoutX="53.0" layoutY="71.0" text="Descipcion" />
-      <TextField layoutX="138.0" layoutY="67.0" />
-      <Button layoutX="202.0" layoutY="340.0" mnemonicParsing="false" text="Guardar" />
+      <TextField fx:id="txtDescripcion" layoutX="138.0" layoutY="67.0" />
+      <Button layoutX="443.0" layoutY="67.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
       <Button layoutX="354.0" layoutY="340.0" mnemonicParsing="false" text="Editar" />
       <Button layoutX="427.0" layoutY="340.0" mnemonicParsing="false" text="Eliminar" />
-      <Button layoutX="282.0" layoutY="340.0" mnemonicParsing="false" text="Nuevo" />
+      <Button layoutX="282.0" layoutY="340.0" mnemonicParsing="false" onAction="#nuevo" text="Nuevo" />
       <Button layoutX="53.0" layoutY="340.0" mnemonicParsing="false" onAction="#regresarVentanaPrincipal" text="Regresar" />
-      <TableView fx:id="tblTipoDeEmpaque" layoutX="53.0" layoutY="112.0" prefHeight="200.0" prefWidth="468.0">
+      <TableView fx:id="tblTipoDeEmpaque" layoutX="53.0" layoutY="112.0" onKeyReleased="#seleccionar" onMouseClicked="#seleccionar" prefHeight="200.0" prefWidth="468.0">
         <columns>
           <TableColumn fx:id="colCodigoTipoDeEmpaque" prefWidth="117.0" text="Codigo" />
           <TableColumn fx:id="colDescripcion" prefWidth="350.0" text="Descripcion" />

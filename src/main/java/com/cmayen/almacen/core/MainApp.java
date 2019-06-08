@@ -70,22 +70,22 @@ public class MainApp extends Application {
     }
     
     public void mostrarVentanaClientes() throws IOException {
-        ClienteController clienteController = (ClienteController) cambiarEscena("ClienteView.fxml", 760, 435);
+        ClienteController clienteController = (ClienteController) cambiarEscena("ClienteView.fxml", 760, 600);
         clienteController.setPrincipal(this);
     }
     
     public void mostrarVentanaCompras() throws IOException {
-        CompraController compraController = (CompraController) cambiarEscena("CompraView.fxml", 760, 435);
+        CompraController compraController = (CompraController) cambiarEscena("CompraView.fxml", 760, 600);
         compraController.setPrincipal(this);
     }
     
     public void mostrarVentanaProductos() throws IOException {
-        ProductoController productoController = (ProductoController) cambiarEscena("ProductoView.fxml", 743, 584);
+        ProductoController productoController = (ProductoController) cambiarEscena("ProductoView.fxml", 760, 600);
         productoController.setPrincipal(this);
     }
     
     public void mostrarVentanaTipoDeEmpaques() throws IOException {
-        TipoDeEmpaqueController tipoDeEmpaqueController = (TipoDeEmpaqueController) cambiarEscena("TipoDeEmpaqueView.fxml", 600, 400);
+        TipoDeEmpaqueController tipoDeEmpaqueController = (TipoDeEmpaqueController) cambiarEscena("TipoDeEmpaqueView.fxml", 760, 600);
         tipoDeEmpaqueController.setPrincipal(this);
     }
     

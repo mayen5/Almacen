@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 public class CategoriaController implements Initializable {
 
@@ -21,13 +23,15 @@ public class CategoriaController implements Initializable {
     private ObservableList<Categoria> lista;
 
     @FXML
-    private TableView tblCategoria;
+    private TableView<Categoria> tblCategoria;
     
     @FXML
     private TableColumn<Categoria, Number> colCodigoCategoria;
     
     @FXML
     private TableColumn<Categoria, String> colDescripcion;
+    
+    @FXML private TextField txtDescripcion;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,6 +48,26 @@ public class CategoriaController implements Initializable {
 
     public void regresarVentanaPrincipal() throws IOException {
         this.principal.mostrarVentanaPrincipal();
+    }
+    
+    public void nuevo() {
+        try {
+            Categoria nuevo = new Categoria();
+            nuevo.setDescripcion(txtDescripcion.getText());
+            this.categoriaService.saveCategoria(nuevo);
+            this.lista.add(nuevo);
+            JOptionPane.showMessageDialog(null, "Registro almacenado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error en el registro de los datos!");
+        }
+        limpiar();
+    }
+    public void limpiar(){
+        txtDescripcion.setText("");
+    }
+    public void seleccionar(){
+        txtDescripcion.setText(tblCategoria.getSelectionModel().getSelectedItem().getDescripcion());
     }
 
 }

@@ -1,70 +1,95 @@
 package com.cmayen.almacen.core.db;
 
+import java.sql.Connection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import org.hibernate.SessionFactory;
 
 public class Conexion {
+
+    private SessionFactory sesion;
     private static Conexion instancia;
     private final String PERSISTENCE_UNIT_NAME = "AlmacenPU";
     private EntityManager em;
-    public Conexion(){
-        try{
+
+    public Conexion() {
+        try {
             em = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME)
                     .createEntityManager();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static Conexion getInstancia(){
-        if(instancia == null){
+
+    public synchronized static Conexion getInstancia() {
+        if (instancia == null) {
             instancia = new Conexion();
         }
         return instancia;
     }
-    public void save(Object elemento){
-        try{
+
+    public void save(Object elemento) {
+        try {
             em.getTransaction().begin();
             em.persist(elemento);
             em.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             em.getTransaction().rollback();
             e.printStackTrace();
         }
     }
-    public void update(Object elemento){
-        try{
+
+    public void update(Object elemento) {
+        try {
             em.getTransaction().begin();
             em.merge(elemento);
             em.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             em.getTransaction().rollback();
             e.printStackTrace();
         }
     }
-    public void delete(Object elemento){
-        try{
+
+    public void delete(Object elemento) {
+        try {
             em.getTransaction().begin();
             em.remove(elemento);
             em.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             em.getTransaction().rollback();
             e.printStackTrace();
         }
     }
-    public List<?> findAll(Class<?> elemento){
+
+    public List<?> findAll(Class<?> elemento) {
         int posicion = elemento.getTypeName().lastIndexOf(".");
-        String clase = elemento.getTypeName().substring(posicion+1,elemento.getTypeName().length());
+        String clase = elemento.getTypeName().substring(posicion + 1, elemento.getTypeName().length());
         System.out.println(clase);
         return em.createNamedQuery(clase.concat(".findAll")).getResultList();
     }
-    public Object findById(Class<?> clase, Long id){
+
+    public Object findById(Class<?> clase, Long id) {
         return em.find(clase.getClass(), id);
     }
-    public Object findById(Class<?> clase, String id){
+
+    public Object findById(Class<?> clase, String id) {
         return em.find(clase.getClass(), id);
     }
-    public EntityManager getEm(){
+
+    public EntityManager getEm() {
         return this.em;
+    }
+    
+    public Connection getConnection(){
+        Connection conexionNativa = null; //java.sql.Connection;
+        try {
+            em.getTransaction().begin();
+            conexionNativa = em.unwrap(Connection.class);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return conexionNativa;
     }
 }

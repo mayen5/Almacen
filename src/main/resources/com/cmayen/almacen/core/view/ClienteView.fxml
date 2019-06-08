@@ -8,30 +8,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cmayen.almacen.core.controller.ClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cmayen.almacen.core.controller.ClienteController">
    <children>
-      <TableView fx:id="tblCliente" layoutX="37.0" layoutY="192.0" prefHeight="200.0" prefWidth="527.0">
+      <TableView fx:id="tblCliente" layoutX="37.0" layoutY="181.0" onKeyReleased="#seleccionar" onMouseClicked="#seleccionar" prefHeight="236.0" prefWidth="527.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="NIT" />
-          <TableColumn prefWidth="136.0" text="DPI" />
-            <TableColumn prefWidth="142.0" text="NOMBRE" />
-            <TableColumn prefWidth="173.0" text="DIRECCION" />
+          <TableColumn fx:id="colNit" prefWidth="75.0" text="NIT" />
+          <TableColumn fx:id="colDpi" prefWidth="136.0" text="DPI" />
+            <TableColumn fx:id="colNombre" prefWidth="142.0" text="NOMBRE" />
+            <TableColumn fx:id="colDireccion" prefWidth="173.0" text="DIRECCION" />
         </columns>
       </TableView>
-      <Label layoutX="37.0" layoutY="25.0" text="NIT" />
-      <TextField layoutX="115.0" layoutY="21.0" />
-      <Label layoutX="37.0" layoutY="58.0" text="DPI" />
-      <TextField layoutX="115.0" layoutY="54.0" />
-      <Label layoutX="37.0" layoutY="92.0" text="NOMBRE" />
-      <TextField layoutX="115.0" layoutY="88.0" />
-      <Label layoutX="37.0" layoutY="123.0" text="DIRECCION" />
-      <TextField layoutX="115.0" layoutY="119.0" />
-      <Button layoutX="36.0" layoutY="150.0" mnemonicParsing="false" text="Guardar" />
-      <Button layoutX="115.0" layoutY="150.0" mnemonicParsing="false" text="Nuevo" />
-      <Button layoutX="183.0" layoutY="150.0" mnemonicParsing="false" text="Editar" />
-      <Button layoutX="247.0" layoutY="150.0" mnemonicParsing="false" text="Eliminar" />
-      <Button layoutX="42.0" layoutY="402.0" mnemonicParsing="false" onAction="#regresarVentanaPrincipal" text="Regresar" />
-      <Label layoutX="389.0" layoutY="41.0" prefHeight="43.0" prefWidth="126.0" text="Cliente">
+      <Label layoutX="37.0" layoutY="50.0" text="NIT" />
+      <TextField fx:id="txtNit" layoutX="115.0" layoutY="46.0" />
+      <Label layoutX="37.0" layoutY="83.0" text="DPI" />
+      <TextField fx:id="txtDpi" layoutX="115.0" layoutY="79.0" />
+      <Label layoutX="37.0" layoutY="117.0" text="NOMBRE" />
+      <TextField fx:id="txtNombre" layoutX="115.0" layoutY="113.0" />
+      <Label layoutX="37.0" layoutY="148.0" text="DIRECCION" />
+      <TextField fx:id="txtDireccion" layoutX="115.0" layoutY="144.0" />
+      <Button layoutX="496.0" layoutY="144.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+      <Button layoutX="169.0" layoutY="427.0" mnemonicParsing="false" onAction="#nuevo" text="Nuevo" />
+      <Button layoutX="237.0" layoutY="427.0" mnemonicParsing="false" text="Editar" />
+      <Button layoutX="301.0" layoutY="427.0" mnemonicParsing="false" text="Eliminar" />
+      <Button layoutX="42.0" layoutY="427.0" mnemonicParsing="false" onAction="#regresarVentanaPrincipal" text="Regresar" />
+      <Label layoutX="252.0" prefHeight="43.0" prefWidth="126.0" text="Cliente">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>

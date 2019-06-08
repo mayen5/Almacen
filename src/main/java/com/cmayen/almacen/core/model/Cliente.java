@@ -1,6 +1,8 @@
 package com.cmayen.almacen.core.model;
 
 import java.io.Serializable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,60 +21,75 @@ import javax.persistence.Table;
 )
 public class Cliente implements Serializable {
     
-    @Id
-    @Column(name="nit")
-    private String nit;
-    
-    @Column(name="dpi")
-    private String dpi;
-    
-    @Column(name="nombre")
-    private String nombre;
-    
-    @Column(name="direccion")
-    private String direccion;
+    private final StringProperty nit;
+    private final StringProperty dpi;
+    private final StringProperty nombre;
+    private StringProperty direccion;
 
     public Cliente() {
+        this.nit = new SimpleStringProperty();
+        this.dpi = new SimpleStringProperty();
+        this.nombre = new SimpleStringProperty();
+        this.direccion = new SimpleStringProperty();
     }
 
     public Cliente(String nit, String dpi, String nombre, String direccion) {
-        this.nit = nit;
-        this.dpi = dpi;
-        this.nombre = nombre;
-        this.direccion = direccion;
+        this.nit = new SimpleStringProperty(nit);
+        this.dpi = new SimpleStringProperty(dpi);
+        this.nombre = new SimpleStringProperty(nombre);
+        this.direccion = new SimpleStringProperty(direccion);
     }
 
+    @Id
+    @Column(name="nit")
     public String getNit() {
-        return nit;
+        return nit.get();
     }
 
     public void setNit(String nit) {
-        this.nit = nit;
+        this.nit.set(nit);
     }
 
+    public StringProperty nit(){
+        return this.nit;
+    }
+    
+    @Column(name="dpi")
     public String getDpi() {
-        return dpi;
+        return dpi.get();
     }
 
     public void setDpi(String dpi) {
-        this.dpi = dpi;
+        this.dpi.set(dpi);
+    }
+    
+    public StringProperty dpi(){
+        return this.dpi;
     }
 
+    @Column(name="nombre")
     public String getNombre() {
-        return nombre;
+        return nombre.get();
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre.set(nombre);
     }
 
+    public StringProperty nombre(){
+        return this.nombre;
+    }
+    
+    @Column(name="direccion")
     public String getDireccion() {
-        return direccion;
+        return direccion.get();
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion.set(direccion);
     }
     
-    
+    public StringProperty direccion(){
+        return this.direccion;
+    }
 }

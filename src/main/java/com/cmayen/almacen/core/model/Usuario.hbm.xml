@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="org.cmayen.almacen.core.model.Usuario" table="usuario">
+
+        <id column="ID" name="id">
+            <!--<generator class="java.lang.Long"/>-->
+            <generator class="identity"/>
+
+        </id>
+
+        <property column="USERNAME" name="userName" type="java.lang.String"/>
+        <property column="PASSWORD" name="password" type="java.lang.String"/>
+        <property column="ENABLED" name="enabled" type="java.lang.Boolean"/>
+        <property column="NOMBRE" name="nombre" type="java.lang.String"/>
+        <property column="APELIIDO" name="apellido" type="java.lang.String"/>
+        <property column="EMAIL" name="email" type="java.lang.String"/>
+
+    </class>
+
+</hibernate-mapping>
